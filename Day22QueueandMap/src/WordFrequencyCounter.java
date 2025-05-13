@@ -46,6 +46,7 @@ public class WordFrequencyCounter {
         StringBuilder normalized = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
+            //Removes punctuation and special characters (keeps only letters, digits, and spaces).
             if (Character.isLetterOrDigit(c) || Character.isWhitespace(c)) {
                 normalized.append(Character.toLowerCase(c));
             }

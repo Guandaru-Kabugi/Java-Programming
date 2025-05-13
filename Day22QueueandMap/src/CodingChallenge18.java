@@ -11,7 +11,7 @@ public class CodingChallenge18 {
         taskQueue.addLast("Task2");
         taskQueue.addFirst("Task0");
         taskQueue.addLast("Task4");
-        
+
 
         // Process and display each task in FIFO order
         System.out.println("Processing tasks:");
