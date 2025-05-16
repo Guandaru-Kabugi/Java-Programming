@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -51,7 +54,21 @@ public class GenerateRandomPassword {
     }
     // Optional: For testing
     public static void main(String[] args) {
-        System.out.println("Generated Password: " + generateStrongPassword());
+
+        String generatedPass = generateStrongPassword();
+        try(FileOutputStream fos = new FileOutputStream("src/main/resources/generatedOutput.txt")){
+            byte[] byteArray = generatedPass.getBytes();
+            fos.write(byteArray);
+            fos.flush();
+            System.out.println("Generated data printed out.");
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //System.out.println("Generated Password: " + generateStrongPassword());
     }
 }
 
